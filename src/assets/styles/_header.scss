@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    padding: 1.6rem 10rem 1.6rem 8rem;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    box-shadow: 0px 0.3rem 0.6rem 0px rgba(71, 71, 71, 0.05), 0px 1.1rem 1.1rem 0px rgba(71, 71, 71, 0.04), 0px 2.6rem 1.5rem 0px rgba(71, 71, 71, 0.03), 0px 4.6rem 1.8rem 0px rgba(71, 71, 71, 0.01), 0px 7.1rem 2rem 0px rgba(71, 71, 71, 0.00);
+
+    ul {
+        display: flex;
+        gap: 3.2rem;
+
+        a {
+            color: var(--black);
+            font-family: Gilroy;
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: 0.0016rem;
+        }
+    }
+}
+
+.header__logo {
+    width: 13rem;
+    height: 3.5rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
