@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import PortfolioForClient from '../pages/PortfolioForClient.vue'
-import Hui from "../pages/Hui.vue"
+import settingsAccount from "../pages/settingsAccount.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,9 +17,9 @@ const router = createRouter({
       component: PortfolioForClient
     },
     {
-      path: '/hui',
-      name: 'Hui',
-      component: Hui
+      path: '/settingsAccount',
+      name: 'settingsAccount',
+      component: settingsAccount
     },
     
   ]
