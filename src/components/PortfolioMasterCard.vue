@@ -1,5 +1,5 @@
 <script setup>
-
+    import ReviewStars from "./ReviewStars.vue"
 </script>
 
 <template>
@@ -11,15 +11,7 @@
         <div class="portfolio-master-card__text-container">
             <div class="portfolio-master-card__title">
                 <h2>Алина</h2>
-                <div>
-                    <svg>
-                        <use href="#review-star"></use>
-                    </svg>
-
-                    <span>
-                        4.9
-                    </span>
-                </div>
+                <ReviewStars />
             </div>
 
             <div class="portfolio-master-card__subtitle">
@@ -66,22 +58,6 @@
         letter-spacing: 0.002rem;
     }
 
-    div {
-        display: flex;
-        gap: 0.4rem;
-        align-items: center;
-
-        svg {
-            width: 1.3rem;
-            height: 1.2rem;
-        }
-
-        span {
-            color: var(--black);
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 0.0014rem;
-        }
-    }
+    
 }
 </style>
