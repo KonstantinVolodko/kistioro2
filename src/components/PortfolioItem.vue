@@ -12,7 +12,7 @@
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .portfilio-item {
     display: flex;
     flex-direction: column;
@@ -22,11 +22,27 @@
         width: 23.3rem;
         border-radius: 0.8rem;
         overflow: hidden;
+        position: relative;
+
+        &.--dashed {
+            border: 0.2rem dashed var(--gray);
+            border-radius: 1rem;
+            height: 100%;
+        }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        svg {
+            width: 2.4rem;
+            height: 2.4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 

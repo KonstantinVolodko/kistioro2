@@ -5,6 +5,9 @@ import BackButton from "../components/BackButton.vue";
 import PortfolioMasterCard from "../components/PortfolioMasterCard.vue";
 import PortfolioItem from "../components/PortfolioItem.vue";
 import Sertificate from "../components/Sertificate.vue";
+import AddPortfolioCard from "../components/AddPortfolioCard.vue";
+import ReviewStars from "../components/ReviewStars.vue";
+import ReviewItem from "../components/ReviewItem.vue"
 </script>
 
 <template>
@@ -27,7 +30,6 @@ import Sertificate from "../components/Sertificate.vue";
                 <PortfolioItem />
                 <PortfolioItem />
                 <PortfolioItem />
-                <PortfolioItem />
             </div>
         </div>
 
@@ -39,6 +41,18 @@ import Sertificate from "../components/Sertificate.vue";
                 <Sertificate />
                 <Sertificate />
             </div>
+        </div>
+
+        <div class="porfolio-for-clients__portfolio-wrapper">
+            <h2>Отзывы
+                <ReviewStars />
+            </h2>
+
+            <div class="review-wrapper">
+                <ReviewItem />
+            </div>
+
+            <button></button>
         </div>
     </div>
 
@@ -54,6 +68,8 @@ h2 {
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.002rem;
+    display: flex;
+    gap: 0.8rem;
 }
 
 .porfolio-for-clients__portfolio-wrapper {
