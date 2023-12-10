@@ -50,16 +50,24 @@ import ReviewItem from "../components/ReviewItem.vue"
 
             <div class="review-wrapper">
                 <ReviewItem />
+                <ReviewItem />
+                <ReviewItem />
             </div>
 
-            <button></button>
+            <div class="review__show-more-container">
+                <button class="review__show-more">Показать всё
+                    <svg>
+                        <use href="#down-arrow"></use>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 
     <Footer />
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../assets/styles/base.scss';
 
 h2 {
@@ -73,7 +81,7 @@ h2 {
 }
 
 .porfolio-for-clients__portfolio-wrapper {
-    margin-top: 2rem;
+    margin-top: 2.8rem;
 }
 
 .porfolio-for-clients__portfolio-inner {
@@ -82,4 +90,39 @@ h2 {
     flex-wrap: wrap;
     gap: 2.4rem;
 }
+
+.review-wrapper {
+    display: flex;
+    gap: 2.8rem;
+    margin-top: 1.6rem;
+}
+
+.review__show-more-container {
+    display: flex;
+    justify-content: center;
+}
+
+.review__show-more {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.0016rem;
+    border: none;
+    background: none;
+
+    svg {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+}
+
+.portfolio-master-card {
+    margin-top: 2.4rem;
+}
+
 </style>
