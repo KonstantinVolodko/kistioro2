@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 5rem;
     
     p {
         color: rgba(37, 37, 37, 0.40);

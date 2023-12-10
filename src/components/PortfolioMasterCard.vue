@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
     import ReviewStars from "./ReviewStars.vue"
 </script>
 
@@ -24,6 +24,7 @@
 <style lang="scss">
 .portfolio-master-card {
     display: flex;
+    align-items: center;
     gap: 1.6rem;
 }
 
