@@ -20,12 +20,4 @@ import NotActiveButton from "../components/NotActiveButton.vue";
 
 <style lang="scss" scoped>
 
-.page-padding__center-content {
-    margin-top: 3.8rem;
-    margin-left: 36.4rem;
-    width: max-content;
-}
-
-
-
 </style>
