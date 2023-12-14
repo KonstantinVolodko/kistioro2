@@ -35,6 +35,18 @@ let data = [{
             <OrderDate date="28.11.23" time="14:00"/>
             <OrdersStatus />
         </div>
+        <div class="hr"></div>
+        <div class="order-container">
+            <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
+            <OrderDate date="28.11.23" time="14:00"/>
+            <OrdersStatus />
+        </div>
+        <div class="hr"></div>
+        <div class="order-container">
+            <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
+            <OrderDate date="28.11.23" time="14:00"/>
+            <OrdersStatus />
+        </div>
     </div>
 </template>
 
@@ -46,10 +58,9 @@ let data = [{
         width: 100%;
         height: 0.1rem;
         background: rgba(44, 44, 44, 0.20);
-        margin-bottom: 1.65rem;
+        margin: 1.65rem 0rem;
     }
     .order-container {
         display: flex;
-        justify-content: space-between;
     }
 </style>

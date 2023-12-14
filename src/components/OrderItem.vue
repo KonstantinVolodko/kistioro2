@@ -26,6 +26,7 @@
 .order-item__container {
     display: flex;
     gap: 0.6rem;
+    width: 33rem;
 }
 .container__svg {
     width: 2rem;
