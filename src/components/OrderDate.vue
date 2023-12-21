@@ -24,6 +24,6 @@ defineProps({
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.0016rem;
-        width: 31rem;
+        width: 28.9rem;
     }
 </style>

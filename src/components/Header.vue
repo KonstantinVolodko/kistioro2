@@ -13,6 +13,9 @@
             <li>
                 <a href="#">Профиль</a>
             </li>
+            <li>
+                <a href="#">Чаты</a>
+            </li>
         </ul>
 
         <button class="header__button transparent-button">

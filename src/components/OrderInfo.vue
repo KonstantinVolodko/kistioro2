@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import OrderItem from "../components/OrderItem.vue";
 import OrderDate from "../components/OrderDate.vue";
-import OrdersStatus from "../components/OrdersStatus.vue";
+import statusInWork from "../components/status/inWork.vue";
+import statusCompleted from "../components/status/completed.vue";
+import statusNotDone from "../components/status/notDone.vue";
 
 let data = [{
         id: 0,
@@ -21,31 +23,31 @@ let data = [{
         <div class="order-container">
             <OrderItem svg-path="#paint-wall" text="Расписать стену 3х3 м2" />
             <OrderDate date="28.11.23" time="14:00"/>
-            <OrdersStatus />
+            <statusInWork />
         </div>
         <div class="hr"></div>
         <div class="order-container">
             <OrderItem svg-path="#paint-wall" text="Декор комнаты 20 м2" />
             <OrderDate date="28.11.23" time="14:00"/>
-            <OrdersStatus />
+            <statusCompleted />
         </div>
         <div class="hr"></div>
         <div class="order-container">
             <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
             <OrderDate date="28.11.23" time="14:00"/>
-            <OrdersStatus />
+            <statusNotDone />
         </div>
         <div class="hr"></div>
         <div class="order-container">
             <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
             <OrderDate date="28.11.23" time="14:00"/>
-            <OrdersStatus />
+            <statusCompleted />
         </div>
         <div class="hr"></div>
         <div class="order-container">
             <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
             <OrderDate date="28.11.23" time="14:00"/>
-            <OrdersStatus />
+            <statusCompleted />
         </div>
     </div>
 </template>
@@ -62,5 +64,6 @@ let data = [{
     }
     .order-container {
         display: flex;
+        justify-content: space-between;
     }
 </style>

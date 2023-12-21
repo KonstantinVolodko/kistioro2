@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import PortfolioMasterCard from "@/components/PortfolioMasterCard.vue";
     import OrderInfo from "@/components/OrderInfo.vue";
+    import inWork from "@/components/inWork.vue";
     import Header from "../components/Header.vue";
 
 </script>
