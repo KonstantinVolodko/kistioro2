@@ -1,11 +1,15 @@
-<script setup>
-
-</script>
-
 <template>
+    <div>
 
+    </div>
 </template>
 
-<style lang="scss">
+<script>
+    export default {
+        
+    }
+</script>
+
+<style lang="scss" scoped>
 
 </style>

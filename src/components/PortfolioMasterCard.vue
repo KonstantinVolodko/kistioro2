@@ -1,5 +1,12 @@
 <script setup lang="ts">
     import ReviewStars from "./ReviewStars.vue"
+
+    const props = defineProps({
+        text: {
+            type: String,
+            required: true
+        },
+    })
 </script>
 
 <template>
@@ -15,7 +22,7 @@
             </div>
 
             <div class="portfolio-master-card__subtitle">
-                Мастер художественной росписи
+                {{ text }}
             </div>
         </div>
     </div>
@@ -60,5 +67,13 @@
     }
 
     
+}
+.portfolio-master-card__subtitle {
+    color: (--black);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.0014rem;
 }
 </style>

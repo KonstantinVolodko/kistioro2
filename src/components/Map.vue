@@ -19,13 +19,14 @@ import masterPhoto from '@/assets/images/portfolioForClient/masterPhoto.jpg';
 const users: UserLocation[] = [
     { id: 1, name: 'Графити', position: [59.9343, 30.3351], imageUrl: masterPhoto },
     { id: 2, name: 'Тату', position: [59.9543, 30.3551], imageUrl: masterPhoto },
+    { id: 2, name: 'Абу', position: [59.9443, 30.3551], imageUrl: masterPhoto },
     // Добавьте сюда других пользователей
 ];
 
 onMounted(() => {
     map.value = L.map('map').setView([59.9343, 30.3351], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
+        attribution: 'ОСУЖДАЮ!!!!'
     }).addTo(map.value);
 
     // Функция для добавления маркера для пользователя
