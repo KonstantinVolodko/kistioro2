@@ -5,15 +5,25 @@ import Map from "../components/Map.vue";
 import GreenButton from "../components/GreenButton.vue";
 import CreateOrder from "../components/CreateOrder.vue";
 import { defineComponent } from "vue";
-import Preloader from "../components/Preloader.vue"; // Предполагается, что Preloader находится в папке components
+import Preloader from "../components/Preloader.vue";
+import MasterDetailsModal from "../components/MasterDetailsModal.vue";
+import modalPattern from '../components/modalPattern.vue';
 
 const showModal = ref(false);
+
+const showMasterModal = ref(false);
+const selectedMaster = ref(null);
+
+const handleMarkerClick = (master) => {
+  selectedMaster.value = master;
+  showMasterModal.value = true;
+};
 </script>
 
 <template>
   <Header />
   <div class="map-container">
-    <Map />
+    <Map @marker-clicked="handleMarkerClick" />
     <GreenButton
       buttonText="Создать заказ"
       @click="showModal = true"
@@ -22,7 +32,9 @@ const showModal = ref(false);
   </div>
   <CreateOrder v-model="showModal">
   </CreateOrder>
-
+  <modalPattern v-model="showMasterModal">
+    <MasterDetailsModal :master="selectedMaster" />
+  </modalPattern>
   <Preloader />
   
 </template>
