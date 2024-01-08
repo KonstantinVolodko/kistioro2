@@ -8,6 +8,7 @@ const photos = ref([]);
 const processFiles = (files) => {
   // Логика обработки файлов
 };
+
 </script>
 
 <template>

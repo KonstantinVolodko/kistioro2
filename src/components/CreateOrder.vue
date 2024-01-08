@@ -4,7 +4,7 @@ import modalPattern from "../components/modalPattern.vue";
 import AddPhotoModal from "../components/AddPhotoModal.vue";
 import CreateOrderContent from "../components/CreateOrderContent.vue";
 
-const showModal = ref(true); // Изначально модальное окно открыто
+const showModal = ref(true);
 const showAddPhoto = ref(false);
 
 const toggleAddPhotoModal = () => {

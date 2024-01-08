@@ -1,57 +1,50 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, reactive } from 'vue';
 
-// const header = ref(null);
-// const headerStyle = reactive({
-//   top: '0px'
-// });
+const header = ref(null);
+const headerStyle = reactive({
+  top: '0px'
+});
 
-// onMounted(() => {
-//   const updateHeaderPosition = () => {
-//     const currentScrollPosition = window.pageYOffset;
-//     if (header.value) {
-//       if (prevScrollPosition > currentScrollPosition) {
-//         headerStyle.top = "0";
-//       } else {
-//         headerStyle.top = `-${header.value.offsetHeight}px`;
-//       }
-//       prevScrollPosition = currentScrollPosition;
-//     }
-//   };
+let prevScrollPosition = window.pageYOffset;
 
-//   let prevScrollPosition = window.pageYOffset;
-//   window.addEventListener('scroll', updateHeaderPosition);
-// });
+onMounted(() => {
+  // Задайте отступ для страницы, равный высоте шапки
+  document.body.style.marginTop = `${header.value.offsetHeight}px`;
 
-// onUnmounted(() => {
-//   window.removeEventListener('scroll', updateHeaderPosition);
-// });
+  const updateHeaderPosition = () => {
+    const currentScrollPosition = window.pageYOffset;
+    if (header.value) {
+      headerStyle.top = prevScrollPosition > currentScrollPosition ? "0" : `-${header.value.offsetHeight}px`;
+      prevScrollPosition = currentScrollPosition;
+    }
+  };
+
+  window.addEventListener('scroll', updateHeaderPosition);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateHeaderPosition);
+});
 </script>
 
 <template>
+  <header class="header" ref="header" :style="headerStyle">
+    <div class="header__logo">
+      <img src="../assets/images/header/header-logo.jpg" alt="#" />
+    </div>
 
-    <header class="header">
-        <div class="header__logo">
-            <img src="../assets/images/header/header-logo.jpg" alt="#">
-        </div>
+    <ul>
+      <li>
+        <a href="#">Карта</a>
+      </li>
+      <li>
+        <a href="#">Профиль</a>
+      </li>
+    </ul>
 
-        <ul>
-            <li>
-                <a href="#">Карта</a>
-            </li>
-            <li>
-                <a href="#">Профиль</a>
-            </li>
-            <li>
-                <a href="#">Чаты</a>
-            </li>
-        </ul>
-
-        <button class="header__button transparent-button">
-            Стать мастером
-        </button>
-    </header>
-
+    <button class="header__button transparent-button">Стать мастером</button>
+  </header>
 </template>
 
 <style lang="scss" scoped>
@@ -59,5 +52,6 @@ import { onMounted, onUnmounted, ref, reactive } from 'vue';
     position: fixed;
     z-index: 1111;
     width: 100%;
+    transition: top 0.3s;
 }
 </style>
