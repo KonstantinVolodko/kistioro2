@@ -42,6 +42,11 @@ body {
   line-height: 2.8rem;
   background: transparent;
 }
+.transparent-button:hover {
+  background: var(--darkGreen);
+  color: #FFF;
+  transition: all .2s;
+}
 
 .page-padding-sides {
   padding-left: 8rem;

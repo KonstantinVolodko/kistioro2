@@ -21,7 +21,7 @@
 <style lang="scss">
 .inputGroup {
     font-family: Gilroy;
-    color: var(--Black, #2C2C2C);
+    color: (--Black);
     leading-trim: both;
 
     text-edge: cap;
