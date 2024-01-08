@@ -15,7 +15,7 @@ import ReviewItem from "../components/ReviewItem.vue"
     <div class="page-padding-sides">
         <BackButton />
 
-        <PortfolioMasterCard />
+        <PortfolioMasterCard text="Мастер художественной росписи"/>
 
         <div class="porfolio-for-clients__portfolio-wrapper">
             <h2>Портфолио</h2>
