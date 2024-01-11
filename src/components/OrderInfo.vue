@@ -2,53 +2,50 @@
 import OrderItem from "../components/OrderItem.vue";
 import OrderDate from "../components/OrderDate.vue";
 import statusInWork from "../components/status/inWork.vue";
-import statusCompleted from "../components/status/completed.vue";
-import statusNotDone from "../components/status/notDone.vue";
-
 let data = [{
         id: 0,
         svgpath: "#paint-wall",
         text: "Расписать стену 3х3 м2",
+        status: "Выполнено",
+        date: "28.11.23",
+        time: "14:00"
     },
     {
+        id: 1,
         svgpath: "#paint-wall",
-        text: "3122",
-    }
+        text: "Декор комнаты 20 м2",
+        status: "В работе",
+        date: "28.11.23",
+        time: "14:00"
+    },
+    {
+        id: 2,
+        svgpath: "#paint-wall",
+        text: "Декор комнаты 20 м2123123",
+        status: "Не выполнено",
+        date: "28.11.23",
+        time: "14:00"
+    },
+    {
+        id: 2,
+        svgpath: "#paint-wall",
+        text: "Декор комнаты 20 м2123123",
+        date: "28.11.23",
+        time: "14:00"
+    },
 ]
+
 </script>
 
 <template>
-    <div class="order-wrapper">
-        <div class="hr"></div>
+    <div class="hr"></div>
+    <div v-for="item in data" class="order-wrapper">
         <div class="order-container">
-            <OrderItem svg-path="#paint-wall" text="Расписать стену 3х3 м2" />
-            <OrderDate date="28.11.23" time="14:00"/>
+            <OrderItem :text="item.text" :svg-path="item.svgpath" />
+            <OrderDate :date="item.date" :time="item.time"/>
             <statusInWork />
         </div>
         <div class="hr"></div>
-        <div class="order-container">
-            <OrderItem svg-path="#paint-wall" text="Декор комнаты 20 м2" />
-            <OrderDate date="28.11.23" time="14:00"/>
-            <statusCompleted />
-        </div>
-        <div class="hr"></div>
-        <div class="order-container">
-            <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
-            <OrderDate date="28.11.23" time="14:00"/>
-            <statusNotDone />
-        </div>
-        <div class="hr"></div>
-        <div class="order-container">
-            <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
-            <OrderDate date="28.11.23" time="14:00"/>
-            <statusCompleted />
-        </div>
-        <div class="hr"></div>
-        <div class="order-container">
-            <OrderItem svg-path="#paint-wall" text="Картина, 24 см2" />
-            <OrderDate date="28.11.23" time="14:00"/>
-            <statusCompleted />
-        </div>
     </div>
 </template>
 

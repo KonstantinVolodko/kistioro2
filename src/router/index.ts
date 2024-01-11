@@ -5,6 +5,8 @@ import settingsAccount from "../pages/settingsAccount.vue"
 import PortfolioForMaster from "../pages/PortfolioForMaster.vue"
 import HistoryOfOrders from '../pages/HistoryOfOrders.vue'
 import settingsAccountIsp from '../pages/settingsAccountIsp.vue'
+import registerPage from '../pages/registerPage.vue'
+import RegisterPageSettings from '../pages/RegisterPageSettings.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +41,17 @@ const router = createRouter({
       name: 'settingsAccountIsp',
       component: settingsAccountIsp
     },
+    {
+      path: '/registerPage',
+      name: 'registerPage',
+      component: registerPage
+    },
+    {
+      path: '/RegisterPageSettings',
+      name: 'RegisterPageSettings',
+      component: RegisterPageSettings
+    }
+
     
   ]
 })

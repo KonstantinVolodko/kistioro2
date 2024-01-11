@@ -11,18 +11,22 @@ import PortfolioItem from "../components/PortfolioItem.vue";
 import Sertificate from "../components/Sertificate.vue";
 import Footer from "../components/Footer.vue";
 
+let status = [{
+    status: "Новичок на сайте"
+}]
+
 </script>
 
 <template>
     <Header />
     <div class="page-padding-sides">
         <BackButton />
-        <div class="change-photo__status-user">
+        <div v-for="item in status" class="change-photo__status-user">
             <PortfolioChangePhoto />
-            <statusUser text="Новичок на сайте" />
+            <statusUser :text="item.status" />
         </div>
         <div class="user-info">
-            <reviewsRange isDisabled="false" minimum="60" maximum="240" />
+            <reviewsRange :isDisabled="true" />
         </div>
         <div class="input__info">
             <ContentInputs />
@@ -60,9 +64,6 @@ import Footer from "../components/Footer.vue";
 .portfilio-item {
     cursor: pointer;
 }
-Header {
-    position: relative !important;
-}
 
 .change-photo__status-user {
     display: flex;
@@ -83,6 +84,7 @@ Header {
 }
 
 .user-info {
+    margin-top: 4rem;
     width: 25%;
 }
 

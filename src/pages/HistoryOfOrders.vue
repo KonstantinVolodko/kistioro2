@@ -3,7 +3,6 @@
     import OrderInfo from "@/components/OrderInfo.vue";
     import inWork from "@/components/inWork.vue";
     import Header from "../components/Header.vue";
-
 </script>
 
 <template>
