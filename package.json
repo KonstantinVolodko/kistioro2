@@ -17,7 +17,7 @@
     "leaflet": "^1.9.4",
     "pinia": "^2.1.7",
     "sass": "^1.69.5",
-    "swiper": "^11.0.5",
+    "swiper": "^8.0.7",
     "vue": "^3.3.10",
     "vue-cool-lightbox": "^2.7.5",
     "vue-fancybox": "^1.0.3",
