@@ -23,6 +23,7 @@ const emitClick = () => {
 
 <style lang="scss">
 .green-button {
+    transition: all .2s;
     border-radius: 0.8rem;
     background: var(--darkGreen);
     padding: 1.8rem 2.4rem;
@@ -32,5 +33,8 @@ const emitClick = () => {
     line-height: normal;
     letter-spacing: 0.0016rem;
     border: none;
+}
+.green-button:hover {
+    background: #076162;
 }
 </style>

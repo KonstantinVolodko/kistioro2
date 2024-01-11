@@ -14,7 +14,7 @@
 <template>
     <div class="inputGroup">
         <input :type="type" autocomplete="off">
-        <label for="name">{{label}}</label>
+        <label for="name">{{ label }}</label>
     </div>
 </template>
 

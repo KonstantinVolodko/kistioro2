@@ -1,25 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// let inputData = {
-//     value: 30,
-//     min: 0,
-//     max: 120,
-// }
 const props = defineProps({
     isDisabled: {
         type: Boolean,
         required: true,
-    },
-    minimum: {
-        type: String,
-        required: true
-    },
-    maximum: {
-        type: String,
-        required: true
     }
 })
-let value = ref(120);
+let range = [{
+    minimum: "60",
+    maximum: "240",
+}]
+const value = ref(120);
 </script>
 
 <template>
@@ -29,11 +20,11 @@ let value = ref(120);
             <use href="#star"></use>
         </svg>
     </div>
-    <input type="range" :disabled="isDisabled" :min="minimum" v-model="value" :max="maximum" class="styled-range" />
-    <div class="user-info__range-reviews">
+    <input v-for="item in range" type="range" :disabled="isDisabled" v-model="value" value="value" :min="item.minimum" :max="item.maximum" class="styled-range" />
+    <div v-for="item in range" class="user-info__range-reviews">
         <div class="range-reviews__min">
             <div class="user-info__number-reviews">
-                <p>{{ minimum }}</p>
+                <p>{{ item.minimum }}</p>
                 <svg>
                     <use href="#star"></use>
                 </svg>
@@ -44,7 +35,7 @@ let value = ref(120);
         </div>
         <div class="range-reviews__max">
             <div class="user-info__number-reviews">
-                <p>{{ maximum }}</p>
+                <p>{{ item.maximum }}</p>
                 <svg>
                     <use href="#star"></use>
                 </svg>

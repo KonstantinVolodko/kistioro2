@@ -9,6 +9,14 @@ defineProps({
             required: true
         }
     })
+    // export default {
+    //     data() {
+    //         return {
+    //             date: '19.12.23',
+    //             time: '19:23',
+    //         }
+    //     },
+    // }
 </script>
 
 <template>
