@@ -4,12 +4,13 @@ import AutocompleteInput from "../components/AutocompleteInput.vue";
 import GreenButton from "../components/GreenButton.vue";
 import ServicesCards from "../components/ServicesCards.vue";
 
-const emits = defineEmits(["toggleAddPhoto"]);
+const emits = defineEmits(["toggleAddPhoto", "toggleLocation", "toggleMasterSearch"]);
 async function fetchSuggestions(query) {
   return ["Подсказка 1", "Подсказка 2", "Подсказка 3"].filter((suggestion) =>
     suggestion.toLowerCase().includes(query.toLowerCase())
   );
 }
+
 </script>
 
 <template>
@@ -34,11 +35,11 @@ async function fetchSuggestions(query) {
           </svg>
         </button>
       </li>
-      <li>
+      <li @click="$emit('toggleLocation')">
         <svg>
           <use href="#point-icon"></use>
         </svg>
-        <input type="text" placeholder="Где" />
+        <div class="create-order__location-inp">Где</div>
       </li>
       <li>
         <svg>
@@ -56,7 +57,7 @@ async function fetchSuggestions(query) {
 
     <GreenButton
       buttonText="Предложить цену"
-      @click="showModal = true"
+      @click="$emit('toggleMasterSearch')"
       class="create-order__green-button"
     />
   </div>
@@ -111,6 +112,20 @@ h2 {
       border: none;
       outline: none;
       border-bottom: 0.1rem solid rgba(44, 44, 44, 0.2);
+      cursor: pointer;
+    }
+
+    .create-order__location-inp {
+      width: 100%;
+      color: rgba(44, 44, 44, 0.6);
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.0016rem;
+      padding: 0.8rem 0rem 1rem 0rem;
+      border: none;
+      outline: none;
+      border-bottom: 0.1rem solid rgba(44, 44, 44, 0.2);
+      cursor: pointer;
     }
 
     &:first-child {
