@@ -6,6 +6,7 @@ export default {
   components: {
     PortfolioMasterCard,
   },
+  name: "LoadingSpinner",
   setup() {
     const totalMinutes = 15;
     const totalTimeInSeconds = totalMinutes * 60;
@@ -37,7 +38,14 @@ export default {
       clearInterval(timer);
     });
 
-    return { formattedTime, lineLength };
+    const isAlertVisible = ref(true);
+
+    // Method to hide the alert
+    const closeAlert = () => {
+      isAlertVisible.value = false;
+    };
+
+    return { formattedTime, lineLength, isAlertVisible, closeAlert };
   },
 };
 </script>
@@ -165,9 +173,206 @@ export default {
       </ul>
     </div>
   </div>
+
+  <div class="helper-modals">
+    <div class="ask-price__content">
+      <div class="spinner-container">
+        <svg class="spinner" viewBox="0 0 50 50">
+          <circle
+            class="path"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="5"
+          ></circle>
+        </svg>
+      </div>
+
+      <h2>Предлагаем Вашу цену, ожижайте</h2>
+
+      <div class="ask-price__content-line">
+        <div :style="{ width: lineLength + '%' }"></div>
+      </div>
+
+      <p>90 минут</p>
+    </div>
+
+    <div class="alert__content" v-if="isAlertVisible">
+      <button class="close-alert-icon" @click="closeAlert">
+        <svg>
+          <use href="#cross-icon"></use>
+        </svg>
+      </button>
+
+      <svg class="alert-ico">
+        <use href="#alert-ico"></use>
+      </svg>
+
+      <p>Указываете точные размеры стен, колличество предметов для росписи</p>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.helper-modals {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 180%;
+  top: 25%;
+}
+
+.ask-price__content-line {
+  background: var(--gray);
+  height: 0.4rem;
+  transition: width 1s linear;
+  position: relative;
+  border-radius: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+
+  div {
+    border-radius: 1rem;
+    position: absolute;
+    height: 0.4rem;
+    transition: width 1s linear;
+    background: var(--darkGreen);
+  }
+}
+.ask-price__content {
+  background: var(--white);
+  position: relative;
+  width: 36rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  height: fit-content;
+  border-radius: 1.6rem;
+  box-shadow: 0px -2px 4px 0px rgba(61, 61, 61, 0.05),
+    0px -7px 7px 0px rgba(61, 61, 61, 0.04),
+    0px -16px 9px 0px rgba(61, 61, 61, 0.03),
+    0px -28px 11px 0px rgba(61, 61, 61, 0.01),
+    0px -43px 12px 0px rgba(61, 61, 61, 0),
+    0px 2px 4px 0px rgba(61, 61, 61, 0.05),
+    0px 7px 7px 0px rgba(61, 61, 61, 0.04),
+    0px 16px 9px 0px rgba(61, 61, 61, 0.04);
+
+  h2 {
+    color: var(--black);
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: normal;
+    width: 16rem;
+    margin-top: 0.7rem;
+  }
+
+  p {
+    color: var(--black);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.0014rem;
+  }
+}
+
+.alert__content {
+  background: var(--white);
+  position: relative;
+  width: 28.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  height: fit-content;
+  border-radius: 1.6rem;
+  box-shadow: 0px -2px 4px 0px rgba(61, 61, 61, 0.05),
+    0px -7px 7px 0px rgba(61, 61, 61, 0.04),
+    0px -16px 9px 0px rgba(61, 61, 61, 0.03),
+    0px -28px 11px 0px rgba(61, 61, 61, 0.01),
+    0px -43px 12px 0px rgba(61, 61, 61, 0),
+    0px 2px 4px 0px rgba(61, 61, 61, 0.05),
+    0px 7px 7px 0px rgba(61, 61, 61, 0.04),
+    0px 16px 9px 0px rgba(61, 61, 61, 0.04);
+
+  .alert-ico {
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: none;
+  }
+
+  p {
+    color: var(--black);
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.0014rem;
+    margin-top: 1rem;
+  }
+}
+
+.close-alert-icon {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: none;
+  border: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 2.4rem;
+  height: 2.4rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.path {
+  stroke: var(--darkGreen);
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
 .master-search-modal__content {
   background: var(--white);
   height: 100%;
