@@ -1,11 +1,15 @@
 <script setup lang="ts">
-
 import BackButton from "../components/BackButton.vue"
 import GreenButton from "../components/GreenButton.vue";
 import InputChangeProfile from "../components/InputChangeProfile.vue";
 import CustomInput from "../components/CustomInput.vue";
 import PortfolioItem from "../components/PortfolioItem.vue";
 import Sertificate from "../components/Sertificate.vue";
+import AddPortfolioCard from "../components/AddPortfolioCard.vue";
+import { ref } from "vue";
+import AddCaseModal from "../components/addCaseModal.vue";
+
+const showModal = ref(false);
 </script>
 
 <template>
@@ -27,18 +31,44 @@ import Sertificate from "../components/Sertificate.vue";
             <InputChangeProfile type="text" label="О себе"/>
             <div class="right-part__portfolio-item">
                 <PortfolioItem />
+                <AddPortfolioCard @click="showModal = true"/>
             </div>
             <div class="right-part__sertificate-item">
                 <Sertificate />
+                <AddPortfolioCard @click="showModal = true"/>
             </div>
             <router-link :to="'/'">
                 <GreenButton buttonText="Далее" />
             </router-link>
         </div>
     </div>
+    <modalPattern>
+        <AddCaseModal v-model="showModal"/>
+    </modalPattern>
+    
 </template>
 
 <style lang="scss" scoped>
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+}
+
+  
+  ::v-deep .close-button {
+      position: absolute;
+      top: 8rem;
+      right: 1.4rem;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+    
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
 .avatar {
     cursor: pointer;
 }
@@ -89,5 +119,12 @@ import Sertificate from "../components/Sertificate.vue";
 .right-part__range-input {
     display: flex;
     gap: 1.6rem;
+}
+
+.right-part__portfolio-item, .right-part__sertificate-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
 }
 </style>
