@@ -4,20 +4,20 @@ import { ref } from "vue";
 const isLoading = ref(true);
 const progress = ref(0);
 
-const totalLoadingTime = 100;
+const totalLoadingTime = 2000;
 const startTime = Date.now();
 
 const simulateLoading = () => {
   let interval = setInterval(() => {
     const elapsedTime = Date.now() - startTime;
-    progress.value = (elapsedTime / totalLoadingTime) * 100;
+    progress.value = (elapsedTime / totalLoadingTime) * 2000;
 
-    if (progress.value >= 100) {
+    if (progress.value >= 2000) {
       clearInterval(interval);
       isLoading.value = false;
-      progress.value = 100;
+      progress.value = 2000;
     }
-  }, 100);
+  }, 2000);
 };
 
 simulateLoading();

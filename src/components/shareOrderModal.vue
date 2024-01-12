@@ -24,7 +24,7 @@ import InputChangeProfile from "../components/InputChangeProfile.vue";
 </template>
 
 <style lang="scss">
-.add-case-modal__content {
+.share-order__content {
   background: var(--white);
   height: fit-content;
   position: relative;
@@ -37,27 +37,44 @@ import InputChangeProfile from "../components/InputChangeProfile.vue";
 
   h2 {
     color: var(--black);
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.0024rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    color: var(--black);
     font-size: 1.6rem;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.0016rem;
     margin-top: 2.4rem;
+
+    span {
+      font-weight: 600;
+    }
   }
 
   .inputGroup {
     margin-top: 3.2rem;
   }
+
+  input {
+    width: 100%;
+  }
 }
 
 .share-order__img {
+  width: 100%;
+  height: 100%;
+
+  img {
     width: 100%;
     height: 100%;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-    }
+    object-fit: cover;
+  }
 }
 </style>
