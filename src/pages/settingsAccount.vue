@@ -11,7 +11,9 @@ import NotActiveButton from "../components/NotActiveButton.vue";
 <template>
     <Header />
     <div class="page-padding__center-content">
-        <BackButton />
+        <router-link :to="'historyOfOrders'">
+            <BackButton />
+        </router-link>
         <PortfolioChangePhoto />
         <ContentInputs />
         <NotActiveButton text="Изменить пароль"></NotActiveButton>
