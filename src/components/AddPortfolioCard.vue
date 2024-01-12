@@ -14,6 +14,8 @@
     </div>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+    .portfilio-item {
+        cursor: pointer;
+    }
 </style>

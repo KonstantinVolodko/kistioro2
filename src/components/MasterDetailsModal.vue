@@ -26,5 +26,18 @@ const toggleShowProjectDetails = () => {
 </template>
 
 <style lang="scss" scoped>
-  
+::v-deep .close-button {
+  position: absolute;
+  top: 2.5rem;
+  right: 1.6rem;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
 </style>

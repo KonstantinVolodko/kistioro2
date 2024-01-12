@@ -68,20 +68,7 @@ const toggleAnimation = () => {
   display: flex;
 }
 
-.close-button {
-    position: absolute;
-    top: 2.5rem;
-    left: 36.6rem;
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: none;
 
-    svg {
-        width: 2.4rem;
-        height: 2.4rem;
-    }
-}
 
 @keyframes slideInFromLeft {
   from {
