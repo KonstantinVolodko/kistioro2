@@ -28,11 +28,17 @@ const closeModal = () => {
   isModalOpen.value = false;
   emit('update:modelValue', false);
 };
+
+const animationClass = ref('modal-enter-active');
+
+const toggleAnimation = () => {
+  animationClass.value = animationClass.value === 'modal-enter-active' ? 'modal-fade-enter-active' : 'modal-enter-active';
+};
 </script>
 
 <template>
   <div v-if="isModalOpen" class="modal-overlay" @click="closeModal">
-    <div class="modal-content" @click.stop>
+    <div :class="['modal-content', animationClass]" @click.stop>
       <slot></slot>
       <button class="close-button" @click="closeModal">
         <svg>
@@ -59,12 +65,13 @@ const closeModal = () => {
 .modal-content {
   height: 100%;
   position: relative;
+  display: flex;
 }
 
 .close-button {
     position: absolute;
     top: 2.5rem;
-    right: 1.6rem;
+    left: 36.6rem;
     margin: 0;
     padding: 0;
     background: none;
@@ -75,4 +82,31 @@ const closeModal = () => {
         height: 2.4rem;
     }
 }
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-enter-active {
+  animation: slideInFromLeft 0.5s ease;
+}
+
+.modal-fade-enter-active {
+  animation: fadeIn 0.5s ease;
+}
+
 </style>

@@ -65,6 +65,14 @@ const emits = defineEmits(["toggleProjectDetails"]);
 </template>
 
 <style lang="scss" scoped>
+.master-details-modal__content {
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
 .master-details-modal__position-container {
   display: flex;
   align-items: center;

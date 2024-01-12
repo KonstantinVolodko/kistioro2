@@ -4,19 +4,22 @@ import AutocompleteInput from "../components/AutocompleteInput.vue";
 import GreenButton from "../components/GreenButton.vue";
 import ServicesCards from "../components/ServicesCards.vue";
 
-const emits = defineEmits(["toggleAddPhoto", "toggleLocation", "toggleMasterSearch"]);
+const emits = defineEmits([
+  "toggleAddPhoto",
+  "toggleLocation",
+  "toggleMasterSearch",
+]);
 async function fetchSuggestions(query) {
   return ["Подсказка 1", "Подсказка 2", "Подсказка 3"].filter((suggestion) =>
     suggestion.toLowerCase().includes(query.toLowerCase())
   );
 }
-
 </script>
 
 <template>
   <div class="create-order__content">
     <h2>Создать заказ</h2>
-    
+
     <ServicesCards />
 
     <ul class="create-order__input-container">
@@ -70,6 +73,11 @@ async function fetchSuggestions(query) {
   position: relative;
   width: 40rem;
   padding: 2rem 1.6rem;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 h2 {

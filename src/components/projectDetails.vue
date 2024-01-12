@@ -73,7 +73,14 @@ const toggleShowProjectDetails = () => {
   position: relative;
   width: 40rem;
   padding: 2rem 1.6rem;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
+
+
 
 .project-details__green-button-container {
   display: flex;
