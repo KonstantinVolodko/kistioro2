@@ -7,6 +7,7 @@ import HistoryOfOrders from '../pages/HistoryOfOrders.vue'
 import settingsAccountIsp from '../pages/settingsAccountIsp.vue'
 import registerPage from '../pages/registerPage.vue'
 import RegisterPageSettings from '../pages/RegisterPageSettings.vue'
+import OrderFeed from '../pages/OrderFeed.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: '/RegisterPageSettings',
       name: 'RegisterPageSettings',
       component: RegisterPageSettings
+    },
+    {
+      path: '/OrderFeed',
+      name: 'OrderFeed',
+      component: OrderFeed
     }
 
     
