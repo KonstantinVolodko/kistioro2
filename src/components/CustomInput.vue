@@ -12,14 +12,14 @@
 </script>
 
 <template>
-    <div class="inputGroup">
-        <input class="inputGroup__input" :type="type" autocomplete="off">
+    <div class="inputGroup__input">
+        <input :type="type" autocomplete="off">
         <label for="name">{{ label }}</label>
     </div>
 </template>
 
 <style lang="scss">
-.inputGroup {
+.inputGroup__input {
     font-family: Gilroy;
     color: var(--Black, #2C2C2C);
     leading-trim: both;
@@ -34,18 +34,18 @@
     position: relative;
 }
 
-.inputGroup input {
+.inputGroup__input input {
   outline: none;
   border: .1rem solid rgba(44, 44, 44, 0.30);
   background-color: transparent;
   border-radius: .8rem;
-  width: 42.5rem;
+  width: 100%;
   height: 3.9rem;
   padding-left: 1.1rem;
   color: var(--Black, #2C2C2C);
 }
 
-.inputGroup label {
+.inputGroup__input label {
   font-size: 100%;
   position: absolute;
   left: 0;
@@ -57,7 +57,7 @@
   color: rgba(44, 44, 44, 0.30);
 }
 
-.inputGroup :is(input:focus, input:valid)~label {
+.inputGroup__input :is(input:focus, input:valid)~label {
   transform: translateY(-50%) scale(.9);
   margin: 0em;
   margin-left: 1.1rem;
@@ -65,7 +65,7 @@
   background-color: white;
 }
 
-.inputGroup :is(input:focus, input:valid) {
+.inputGroup__input :is(input:focus, input:valid) {
   border-color: rgba(44, 44, 44, 0.30);
 }
 </style>

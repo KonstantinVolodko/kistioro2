@@ -30,20 +30,28 @@ onUnmounted(() => {
 
 <template>
   <header class="header" ref="header" :style="headerStyle">
-    <div class="header__logo">
+    <router-link :to="'/'">
+      <div class="header__logo">
       <img src="../assets/images/header/header-logo.jpg" alt="#" />
     </div>
+      </router-link>
 
     <ul>
-      <li>
-        <a href="#">Карта</a>
-      </li>
-      <li>
-        <a href="#">Профиль</a>
-      </li>
+      <router-link :to="'/'">
+        <li>
+          <a href="#">Карта</a>
+        </li>
+      </router-link>
+      <router-link :to="'historyOfOrders'">
+        <li>
+          <a href="#">Профиль</a>
+        </li>
+      </router-link>
     </ul>
 
-    <button class="header__button transparent-button">Стать мастером</button>
+    <router-link :to="'RegisterPage'">
+      <button class="header__button transparent-button">Стать мастером</button>
+      </router-link>
   </header>
 </template>
 
@@ -53,5 +61,11 @@ onUnmounted(() => {
     z-index: 1111;
     width: 100%;
     transition: top 0.3s;
+}
+li a {
+  transition: all .2s;
+}
+li a:hover {
+  color: var(--darkGreen);
 }
 </style>

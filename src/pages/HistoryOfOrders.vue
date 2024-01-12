@@ -1,7 +1,7 @@
 <script setup lang="ts">
-    import PortfolioMasterCard from "@/components/PortfolioMasterCard.vue";
-    import OrderInfo from "@/components/OrderInfo.vue";
-    import inWork from "@/components/inWork.vue";
+    import PortfolioMasterCard from "../components/PortfolioMasterCard.vue";
+    import OrderInfo from "../components/OrderInfo.vue";
+    import inWork from "../components/status/inWork.vue";
     import Header from "../components/Header.vue";
 </script>
 
@@ -12,9 +12,11 @@
             <PortfolioMasterCard text="Пользователь"/>
             <div class="profile-container__parametrs">
                 <div class="parametrs__settings-circly">
-                    <svg class="settings-circly__svg">
-                        <use href="#setting-param"></use>
-                    </svg>
+                    <router-link :to="'SettingsAccount'">
+                        <svg class="settings-circly__svg">
+                            <use href="#setting-param"></use>
+                        </svg>
+                    </router-link>
                 </div>
                 <div class="parametrs__settings-circly">
                     <svg class="parametrs__info">

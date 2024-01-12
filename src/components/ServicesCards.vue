@@ -186,4 +186,11 @@ ul {
       height: 100%;
     }
   }
+  .create-order__list-cards li {
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .create-order__list-cards li:hover {
+    border: .1rem solid var(--darkGreen);
+  }
 </style>
