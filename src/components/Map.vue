@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import L from "leaflet";
+import L, { Map, Marker } from "leaflet"; // Import Map and Marker types from Leaflet
 import "leaflet/dist/leaflet.css";
 
-const map = ref(null);
+const map = ref<Map | null>(null);
 
 const emit = defineEmits(['marker-clicked']);
 
@@ -30,35 +30,42 @@ const users: UserLocation[] = [
 ];
 
 onMounted(() => {
-  map.value = L.map("map").setView([59.9343, 30.3351], 13);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap contributors",
-  }).addTo(map.value);
+  const mapContainer = document.getElementById("map");
+  if (mapContainer) {
+    map.value = L.map(mapContainer).setView([59.9343, 30.3351], 13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors",
+    }).addTo(map.value as L.Map); // Explicitly cast map.value to L.Map
 
-  // Функция для добавления маркера для пользователя
-  const addUserMarker = (user: UserLocation) => {
-    const marker = L.marker(user.position, {
-      icon: L.divIcon({
-        className: "custom-icon",
-        html: `<div class="marker-content">
-                <div class="marker-content__img">
-                    <img src="${user.imageUrl}" alt="${user.name}"/>
-                </div>
-                <div class="marker-content__text">
-                    <p>${user.name}</p>    
-                </div>
-               </div>`,
-      }),
-    }).addTo(map.value);
+    // Функция для добавления маркера для пользователя
+    const addUserMarker = (user: UserLocation) => {
+      const marker = L.marker(user.position, {
+        icon: L.divIcon({
+          className: "custom-icon",
+          html: `<div class="marker-content">
+                  <div class="marker-content__img">
+                      <img src="${user.imageUrl}" alt="${user.name}"/>
+                  </div>
+                  <div class="marker-content__text">
+                      <p>${user.name}</p>    
+                  </div>
+                 </div>`,
+        }),
+      });
 
-    // Событие клика на маркер
-    marker.on("click", () => {
-      emit("marker-clicked", user);
-    });
-  };
+      if (map.value) {
+        marker.addTo(map.value as Map); // Explicitly cast map.value to Map
 
-  // Перебор массива пользователей и добавление маркера для каждого
-  users.forEach(addUserMarker);
+        // Событие клика на маркер
+        marker.on("click", () => {
+          emit("marker-clicked", user);
+        });
+      }
+    };
+
+    // Перебор массива пользователей и добавление маркера для каждого
+    users.forEach(addUserMarker);
+  }
 });
 </script>
 

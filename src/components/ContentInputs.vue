@@ -5,6 +5,10 @@ import InputChangeProfile from "../components/InputChangeProfile.vue";
 
 
 const showPasswordFields = ref(false);
+const showPass = ref(false); // Add this line
+const toggleShowPass = () => { // Add this function
+    showPass.value = !showPass.value;
+};
 
 const togglePasswordFields = () => {
     showPasswordFields.value = !showPasswordFields.value;
@@ -17,10 +21,10 @@ const togglePasswordFields = () => {
             <InputChangeProfile label="Почта" type="text" />
             <div class="inputs-icon__change-password">
                 <InputChangeProfile label="Пароль" type="password" />
-                <svg @click="showPass = !showPass" v-show="!showPass" class="change-password__svg-hidden">
+                <svg @click="toggleShowPass" v-show="!showPass" class="change-password__svg-hidden">
                     <use href="#visible-password-hidden"></use>
                 </svg>
-                <svg @click="showPass = showPass" v-show="showPass" class="change-password__svg-show">
+                <svg @click="toggleShowPass" v-show="showPass" class="change-password__svg-show">
                     <use href="#visible-password-hidden"></use>
                 </svg>
             </div>

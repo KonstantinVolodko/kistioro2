@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
 import AutocompleteInput from "../components/AutocompleteInput.vue";
 import GreenButton from "../components/GreenButton.vue";
@@ -9,7 +9,7 @@ const emits = defineEmits([
   "toggleLocation",
   "toggleMasterSearch",
 ]);
-async function fetchSuggestions(query) {
+async function fetchSuggestions(query: string) {
   return ["Подсказка 1", "Подсказка 2", "Подсказка 3"].filter((suggestion) =>
     suggestion.toLowerCase().includes(query.toLowerCase())
   );

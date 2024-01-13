@@ -1,15 +1,16 @@
-<script setup>
-import { ref, watchEffect, defineEmits, onMounted } from "vue";
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import SwiperCore from "swiper/core"; // Импортируйте всю библиотеку
+
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SwiperCore, { Navigation, Pagination } from "swiper";
 
-// Регистрация модулей
-SwiperCore.use([Navigation, Pagination]);
+// Регистрируйте модули, которые вы хотите использовать
+SwiperCore.use(["Navigation", "Pagination"]);
 
-const images = ref([
+const images = ref<string[]>([
   "https://cdn.pixabay.com/photo/2023/07/04/10/30/dragon-fly-8105990_1280.jpg",
   "https://cdn.pixabay.com/photo/2023/11/02/15/58/flower-8360946_1280.jpg",
   "https://cdn.pixabay.com/photo/2023/12/22/09/46/cotton-top-tamarin-8463471_1280.jpg",
@@ -18,15 +19,15 @@ const images = ref([
   "https://cdn.pixabay.com/photo/2023/12/12/13/28/waterfall-8445292_1280.jpg",
   // ... more images
 ]);
-const selectedImage = ref("");
+const selectedImage = ref<string>("");
 
-const selectImage = (image) => {
+const selectImage = (image: string) => {
   selectedImage.value = image;
 };
 
 onMounted(() => {
   if (images.value.length > 0) {
-    selectedImage.value = images.value[0]; // Устанавливаем первое изображение по умолчанию
+    selectedImage.value = images.value[0]; // Set the first image as the default
   }
 });
 
@@ -36,7 +37,7 @@ const toggleShowProjectDetails = () => {
   showProjectDetails.value = !showProjectDetails.value;
 };
 
-const renderBullet = (index, className) => {
+const renderBullet = (index: number, className: string) => {
   return '<span class="' + className + '">' + (index + 1) + "</span>";
 };
 </script>

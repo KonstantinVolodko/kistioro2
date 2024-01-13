@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import PortfolioMasterCard from "../components/PortfolioMasterCard.vue";
 

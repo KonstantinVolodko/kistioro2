@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import modalPattern from "../components/modalPattern.vue";
-import AddPhotoModal from "../components/AddPhotoModal.vue";
+import AddPhotoModal from "../components/addPhotoModal.vue";
 import CreateOrderContent from "../components/CreateOrderContent.vue";
 import LocationModal from "../components/locationModal.vue";
 import MasterSearchModal from "../components/MasterSearchModal.vue";

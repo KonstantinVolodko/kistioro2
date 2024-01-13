@@ -5,7 +5,7 @@ import settingsAccount from "../pages/settingsAccount.vue"
 import PortfolioForMaster from "../pages/PortfolioForMaster.vue"
 import HistoryOfOrders from '../pages/HistoryOfOrders.vue'
 import settingsAccountIsp from '../pages/settingsAccountIsp.vue'
-import registerPage from '../pages/registerPage.vue'
+import registerPage from '../pages/RegisterPage.vue'
 import RegisterPageSettings from '../pages/RegisterPageSettings.vue'
 import OrderFeed from '../pages/OrderFeed.vue'
 

@@ -1,4 +1,4 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <template>
   <ul class="create-order__list-cards">

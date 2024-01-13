@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import modalPattern from "../components/modalPattern.vue";
 import InputChangeProfile from "../components/InputChangeProfile.vue";
 </script>

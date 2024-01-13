@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, watch, defineProps } from "vue";
 
 const props = defineProps({
@@ -26,8 +26,9 @@ watch(inputText, async (newValue) => {
   }
 });
 
-function onInput(event) {
-  inputText.value = event.target.value;
+function onInput(event: Event) {
+  const target = event.target as HTMLInputElement;
+  inputText.value = target.value;
 }
 </script>
 

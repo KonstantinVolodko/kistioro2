@@ -5,7 +5,7 @@ import addPhotoField from "../components/addPhotoField.vue";
 
 const photos = ref([]);
 
-const processFiles = (files) => {
+const processFiles = (files: File[]) => {
   // Логика обработки файлов
 };
 

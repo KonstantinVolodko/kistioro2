@@ -1,24 +1,28 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, reactive } from 'vue';
 
-const header = ref(null);
+let header = ref<HTMLElement | null>(null); // Add type annotation
 const headerStyle = reactive({
   top: '0px'
 });
 
 let prevScrollPosition = window.pageYOffset;
 
-onMounted(() => {
-  // Задайте отступ для страницы, равный высоте шапки
-  document.body.style.marginTop = `${header.value.offsetHeight}px`;
+const updateHeaderPosition = () => { // Define the function before using it
+  const currentScrollPosition = window.pageYOffset;
+  if (header.value) {
+    document.body.style.marginTop = `${header.value.offsetHeight}px`; // Move this line inside the null check
+    headerStyle.top = prevScrollPosition > currentScrollPosition ? "0" : `-${header.value.offsetHeight}px`;
+    prevScrollPosition = currentScrollPosition;
+  }
+};
 
-  const updateHeaderPosition = () => {
-    const currentScrollPosition = window.pageYOffset;
-    if (header.value) {
-      headerStyle.top = prevScrollPosition > currentScrollPosition ? "0" : `-${header.value.offsetHeight}px`;
-      prevScrollPosition = currentScrollPosition;
-    }
-  };
+onMounted(() => {
+  header = ref<HTMLElement | null>(document.querySelector('.header')); // Update the header ref
+
+  if (header.value) {
+    document.body.style.marginTop = `${header.value.offsetHeight}px`;
+  }
 
   window.addEventListener('scroll', updateHeaderPosition);
 });

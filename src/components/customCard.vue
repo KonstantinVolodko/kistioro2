@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import GreenButton from '../components/GreenButton.vue'
+</script>
+
 <template>
     <div class="card-profile">
         <div class="card-profile__info">
@@ -33,10 +37,6 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-import GreenButton from '../components/GreenButton.vue'
-</script>
 
 <style lang="scss" scoped>
 
