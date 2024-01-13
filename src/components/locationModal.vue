@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import BackButton from "../components/BackButton.vue";
 import AutocompleteInput from "../components/AutocompleteInput.vue";
 
-async function fetchSuggestions(query) {
+async function fetchSuggestions(query: string) {
   return ["Подсказка 1", "Подсказка 2", "Подсказка 3"].filter((suggestion) =>
     suggestion.toLowerCase().includes(query.toLowerCase())
   );

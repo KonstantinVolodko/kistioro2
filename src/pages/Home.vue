@@ -12,9 +12,16 @@ import modalPattern from "../components/modalPattern.vue";
 const showModal = ref(false);
 
 const showMasterModal = ref(false);
-const selectedMaster = ref(null);
+const selectedMaster = ref<Master | null>(null);
 
-const handleMarkerClick = (master) => {
+interface Master {
+  // определите поля и их типы здесь
+  id: number;
+  name: string;
+  // и так далее
+}
+
+const handleMarkerClick = (master: Master) => {
   selectedMaster.value = master;
   showMasterModal.value = true;
 };

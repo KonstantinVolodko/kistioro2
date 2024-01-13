@@ -7,7 +7,7 @@ interface Photo {
 }
 
 const photos = ref<Photo[]>([]);
-const fileInputRef = ref(null);
+const fileInputRef = ref<HTMLInputElement | null>(null);
 
 const fileInputClick = () => {
   fileInputRef.value?.click();
@@ -19,6 +19,17 @@ const dragOver = (event: DragEvent) => {
 
 const dragLeave = (event: DragEvent) => {
   event.preventDefault();
+};
+
+const processFiles = (files: File[]) => {
+  files.forEach((file) => {
+    if (!file.type.startsWith("image/")) {
+      return;
+    }
+    // Create a URL for the file
+    const url = URL.createObjectURL(file);
+    photos.value.push({ file, url });
+  });
 };
 
 const handleDrop = (event: DragEvent) => {
@@ -36,16 +47,7 @@ const handleFiles = (event: Event) => {
   }
 };
 
-const processFiles = (files: File[]) => {
-  files.forEach((file) => {
-    if (!file.type.startsWith("image/")) {
-      return;
-    }
-    // Create a URL for the file
-    const url = URL.createObjectURL(file);
-    photos.value.push({ file, url });
-  });
-};
+
 </script>
 
 <template>

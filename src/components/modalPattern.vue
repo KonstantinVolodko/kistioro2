@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watchEffect } from 'vue';
 
 const props = defineProps({
@@ -14,7 +14,7 @@ const isModalOpen = ref(props.modelValue);
 const headerHeight = ref(0);
 
 onMounted(() => {
-  const header = document.querySelector('.header');
+  const header = document.querySelector('.header') as HTMLElement; // Cast to HTMLElement
   if (header) {
     headerHeight.value = header.offsetHeight;
   }

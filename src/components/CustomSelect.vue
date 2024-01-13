@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue';
+import { ref, computed, watch, onMounted, defineProps } from 'vue';
+import type { PropType } from 'vue'; // Type-only import for PropType
 
 interface Option {
   label: string;
@@ -8,7 +9,7 @@ interface Option {
 
 const props = defineProps({
     options: {
-        type: Array as PropType<Option[]>,
+        type: Array as PropType<Option[]>, // Now PropType is recognized
         required: true
     },
     modelValue: {
@@ -47,7 +48,7 @@ const toggleDropdown = () => {
     dropdownOpen.value = !dropdownOpen.value;
 };
 
-const selectOption = (option, event) => {
+const selectOption = (option: Option, event: MouseEvent) => {
     event.stopPropagation(); // Остановка всплытия события
     selectedValue.value = option.value;
     emit('update:modelValue', option.value);

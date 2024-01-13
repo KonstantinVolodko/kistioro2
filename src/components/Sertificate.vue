@@ -5,7 +5,7 @@ import ModalPattern from '../components/modalPattern.vue'; // Импортиру
 const showModal = ref(false);
 const currentImage = ref('');
 
-const openModal = (imageSrc) => {
+const openModal = (imageSrc: string) => {
     currentImage.value = imageSrc;
     showModal.value = true;
 };

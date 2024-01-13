@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, watchEffect, defineEmits, onMounted } from "vue";
 import BackButton from "../components/BackButton.vue";
 import GreenButton from "../components/GreenButton.vue";

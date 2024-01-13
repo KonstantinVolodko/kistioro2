@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, defineEmits } from "vue";
 import ServicesCards from "../components/ServicesCards.vue";
 import GreenButton from "../components/GreenButton.vue";
@@ -8,7 +8,7 @@ import ModalPattern from "../components/modalPattern.vue"; // Импортиру
 const showModal = ref(false);
 const currentImage = ref("");
 
-const openModal = (imageSrc) => {
+const openModal = (imageSrc: string) => {
   currentImage.value = imageSrc;
   showModal.value = true;
 };
