@@ -11,7 +11,7 @@ let prevScrollPosition = window.pageYOffset;
 const updateHeaderPosition = () => { // Define the function before using it
   const currentScrollPosition = window.pageYOffset;
   if (header.value) {
-    document.body.style.marginTop = `${header.value.offsetHeight}px`; // Move this line inside the null check
+    // Removed the line that sets document.body.style.marginTop
     headerStyle.top = prevScrollPosition > currentScrollPosition ? "0" : `-${header.value.offsetHeight}px`;
     prevScrollPosition = currentScrollPosition;
   }
@@ -20,9 +20,7 @@ const updateHeaderPosition = () => { // Define the function before using it
 onMounted(() => {
   header = ref<HTMLElement | null>(document.querySelector('.header')); // Update the header ref
 
-  if (header.value) {
-    document.body.style.marginTop = `${header.value.offsetHeight}px`;
-  }
+  // Removed the line that sets document.body.style.marginTop initially
 
   window.addEventListener('scroll', updateHeaderPosition);
 });
@@ -61,7 +59,7 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .header {
-    position: fixed;
+    position: sticky;
     z-index: 1111;
     width: 100%;
     transition: top 0.3s;
