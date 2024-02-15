@@ -54,10 +54,19 @@ body {
 .page-padding-sides {
   padding-left: 8rem;
   padding-right: 8rem;
+  @include breakpoint($sm-bp) {
+    padding: 0rem 2rem;
+  }
 }
 
 .page-padding__center-content {
   padding: 3.8rem 36.4rem;
+  @include breakpoint($xl-bp) {
+    padding: 3.8rem 10.4rem;
+  }
+  @include breakpoint($sm-bp) {
+    padding: 0.8rem 1.6rem;
+  }
 }
 
 @import './header.scss';

@@ -38,19 +38,35 @@ async function fetchSuggestions(query: string) {
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .register-page {
     display: flex;
     height: 100%;
+    @include breakpoint($xl-bp) {
+        height: 100vh;
+        justify-content: center;
+        padding: 2rem;
+    }
 }
 .register-page__bacground-left {
     width: 78.5rem;
     height: 100vh;
     overflow: hidden;
     object-fit: cover;
+    @include breakpoint($xl-bp) {
+        display: none;
+    }
     img {
         width: 100%;
         height: 100%;
     }
+}
+::v-deep .green-button {
+  padding: 1.8rem 2.4rem !important;
+  color: var(--white) !important;
+  width: 100%;
 }
 .register-page__right-part {
     display: flex;
@@ -58,6 +74,13 @@ async function fetchSuggestions(query: string) {
     align-items: center;
     justify-content: center;
     width: 50%;
+    @include breakpoint($xl-bp) {
+        width: 100%;
+        gap: 1rem;
+    }
+    @include breakpoint($sm-bp) {
+        align-items: stretch;
+    }
     p {
         color: rgba(44, 44, 44, 0.60);
         text-align: center;
@@ -86,6 +109,10 @@ async function fetchSuggestions(query: string) {
     height: 5.4rem;
     overflow: hidden;
     object-fit: cover;
+    @include breakpoint($sm-bp) {
+        display: flex;
+        margin: 0 auto;
+    }
     img {
         width: 100%;
         height: 100%;
@@ -99,6 +126,9 @@ async function fetchSuggestions(query: string) {
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
+    @include breakpoint($xl-bp) {
+        width: 100%;
+    }
 }
 .green-button {
     margin-top: 2rem;

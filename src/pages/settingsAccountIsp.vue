@@ -61,10 +61,12 @@ let status = [{
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .portfilio-item {
     cursor: pointer;
 }
-
 .change-photo__status-user {
     display: flex;
     gap: 4.1rem;
@@ -86,6 +88,9 @@ let status = [{
 .user-info {
     margin-top: 4rem;
     width: 25%;
+    @include breakpoint($sm-bp) {
+        width: 100%;
+    }
 }
 
 .input__info {
@@ -95,4 +100,7 @@ let status = [{
     flex-wrap: wrap;
     gap: 3.2rem;
     row-gap: 1.6rem;
+    @include breakpoint($sm-bp) {
+        width: 100%;
+    }
 }</style>

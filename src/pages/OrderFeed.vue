@@ -39,7 +39,9 @@ import customCard from "../components/customCard.vue";
 
 
 <style lang="scss" scoped>
-
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .modal-overlay {
     display: flex;
     justify-content: center;
@@ -59,6 +61,9 @@ import customCard from "../components/customCard.vue";
       height: 2.4rem;
     }
   }
+::v-deep .card-profile {
+    flex: 0;
+}
 .order-feed {
     display: flex;
     margin-top: 12rem;
@@ -81,6 +86,9 @@ import customCard from "../components/customCard.vue";
     flex-direction: column;
     gap: 2rem;
     height: max-content;
+    @include breakpoint($sm-bp) {
+        display: none;
+    }
     p {
         color: var(--Black);
         font-size: 2.4rem;

@@ -24,6 +24,9 @@
 </template>
 
 <style lang="scss">
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .portfolio-master-card {
     display: flex;
     gap: 1.6rem;
@@ -45,6 +48,9 @@
 .portfolio-photo__change-img {
     display: flex;
     align-items: center;
+    @include breakpoint($sm-bp) {
+        display: none;
+    }
 }
 .change-file {
     width: 2rem;

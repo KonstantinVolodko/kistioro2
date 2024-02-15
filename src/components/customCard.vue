@@ -35,10 +35,15 @@ import shareOrderModal from "../components/shareOrderModal.vue";
                 <p>≈800м</p>
             </div>
             <div class="feedback__btn">
+
                 <router-link :to="'PortfolioForClient/:rid'">
                     <button class="header__button transparent-button">Подробнее</button>
                 </router-link>
                 <GreenButton buttonText="Откликнуться" />
+
+                <button class="header__button transparent-button">Подробнее</button>
+                <GreenButton class="green-button" buttonText="Откликнуться" />
+
             </div>
         </div>
     </div>
@@ -47,6 +52,7 @@ import shareOrderModal from "../components/shareOrderModal.vue";
 </template>
 
 <style lang="scss" scoped>
+
 .modal-overlay {
     display: flex;
     justify-content: center;
@@ -66,6 +72,11 @@ import shareOrderModal from "../components/shareOrderModal.vue";
       height: 2.4rem;
     }
   }
+
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
+
     .card-profile {
         display: flex;
         padding: 1.6rem;
@@ -78,6 +89,16 @@ import shareOrderModal from "../components/shareOrderModal.vue";
 
         /* Shadow (interface) */
         box-shadow: 0px 0px 8px 2px rgba(188, 188, 188, 0.25);
+    }
+    ::v-deep .green-button {
+        padding: 1.8rem 2.4rem;
+        color: var(--white);
+    }
+    ::v-deep .transparent-button {
+        @include breakpoint($sm-bp) {
+        display: none;
+    }
+
     }
     .card-profile__info {
         display: flex;
