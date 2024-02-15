@@ -25,6 +25,15 @@ import GreenButton from "../components/GreenButton.vue";
 </template>
 
 <style lang="scss">
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
+::v-deep .modal-content {
+  @include breakpoint($sm-bp) {
+    height: 100%;
+  }
+}
+
 .add-case-modal__content {
   background: var(--white);
   height: fit-content;

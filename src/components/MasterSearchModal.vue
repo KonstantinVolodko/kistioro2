@@ -215,6 +215,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
 .helper-modals {
   display: flex;
   flex-direction: column;
@@ -380,6 +383,10 @@ export default {
   width: 40rem;
   padding: 2rem 1.6rem;
   overflow-y: scroll;
+
+  @include breakpoint($sm-bp) {
+    width: 36rem;
+  }
 
   &::-webkit-scrollbar {
     width: 0;
@@ -648,6 +655,10 @@ export default {
     background: rgba(44, 44, 44, 0.05);
     padding: 1rem 2rem;
     border: none;
+
+    @include breakpoint($sm-bp) {
+      padding: 1rem;
+    }
 
     &.--active {
       background: var(--darkGreen);

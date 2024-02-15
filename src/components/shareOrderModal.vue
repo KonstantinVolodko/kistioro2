@@ -24,6 +24,15 @@ import InputChangeProfile from "../components/InputChangeProfile.vue";
 </template>
 
 <style lang="scss">
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
+::v-deep .modal-content {
+  @include breakpoint($sm-bp) {
+    height: 100%;
+  }
+}
+
 .share-order__content {
   background: var(--white);
   height: fit-content;

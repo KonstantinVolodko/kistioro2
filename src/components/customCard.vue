@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import GreenButton from '../components/GreenButton.vue'
+import { ref } from "vue";
+const showModal = ref(false);
+import shareOrderModal from "../components/shareOrderModal.vue";
+
 </script>
 
 <template>
@@ -21,7 +25,7 @@ import GreenButton from '../components/GreenButton.vue'
         <div class="card-profile__feedback">
             <div class="feedback__title">
                 <p>Декор комнаты</p>
-                <svg>
+                <svg @click="showModal = true">
                     <use href="#orderInfo-share"></use>
                 </svg>
             </div>
@@ -31,15 +35,37 @@ import GreenButton from '../components/GreenButton.vue'
                 <p>≈800м</p>
             </div>
             <div class="feedback__btn">
-                <button class="header__button transparent-button">Подробнее</button>
+                <router-link :to="'PortfolioForClient/:rid'">
+                    <button class="header__button transparent-button">Подробнее</button>
+                </router-link>
                 <GreenButton buttonText="Откликнуться" />
             </div>
         </div>
     </div>
+
+    <shareOrderModal v-model="showModal"></shareOrderModal>
 </template>
 
 <style lang="scss" scoped>
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+  }
 
+::v-deep .close-button {
+    position: absolute;
+    top: 8rem;
+    right: 1.4rem;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+  
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
     .card-profile {
         display: flex;
         padding: 1.6rem;

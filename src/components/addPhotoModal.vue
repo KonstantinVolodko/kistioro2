@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 import BackButton from "../components/BackButton.vue";
 import addPhotoField from "../components/addPhotoField.vue";
 
@@ -8,7 +8,6 @@ const photos = ref([]);
 const processFiles = (files: File[]) => {
   // Логика обработки файлов
 };
-
 </script>
 
 <template>
@@ -35,17 +34,23 @@ const processFiles = (files: File[]) => {
 
     <addPhotoField :photos="photos" @fileAdded="processFiles" />
   </div>
-
-  
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/base.scss";
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
 .addPhotoModal-content {
   background: var(--white);
   height: 100%;
   position: relative;
   width: 40rem;
   padding: 2rem 1.6rem;
+
+  @include breakpoint($sm-bp) {
+    width: 100%;
+  }
 }
 
 .addPhotoModal-content__title {
@@ -95,7 +100,7 @@ const processFiles = (files: File[]) => {
 }
 
 .addPhotoModal-content__disclaimer {
-    margin-top: 1.6rem;
+  margin-top: 1.6rem;
   p {
     color: rgba(44, 44, 44, 0.6);
     font-size: 1.6rem;

@@ -119,6 +119,10 @@
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/base.scss";
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
 ul {
   margin-top: 2rem;
   display: flex;
@@ -138,6 +142,10 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     padding: 0.8rem 1rem 0rem 1rem;
+
+    @include breakpoint($sm-bp) {
+      width: 15rem;
+    }
 
     p {
       color: var(--black);
@@ -170,27 +178,36 @@ ul {
 }
 
 .exclamation-button {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    width: 2rem;
-    height: 2rem;
-    background: none;
-    border: none;
-    padding: 0;
-    fill: transparent;
-    stroke: var(--black);
-  
-    svg {
-      width: 100%;
-      height: 100%;
-    }
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  padding: 0;
+  fill: transparent;
+  stroke: var(--black);
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
-  .create-order__list-cards li {
-    transition: all .2s;
-    cursor: pointer;
+}
+
+.create-order__list-cards {
+  @include breakpoint($sm-bp) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 33rem;
   }
-  .create-order__list-cards li:hover {
-    border: .1rem solid var(--darkGreen);
-  }
+}
+.create-order__list-cards li {
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.create-order__list-cards li:hover {
+  border: 0.1rem solid var(--darkGreen);
+}
 </style>

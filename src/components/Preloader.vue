@@ -49,6 +49,10 @@ simulateLoading();
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/base.scss";
+@import "../assets/styles/vars.scss";
+@import "../assets/styles/mixins.scss";
+
 .preloader {
   position: fixed;
   top: 0;
@@ -135,4 +139,5 @@ p {
   width: 0%;
   transition: width 0.2s ease-out;
 }
+
 </style>
