@@ -23,10 +23,16 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .order-item__container {
     display: flex;
     gap: 0.6rem;
     width: 33rem;
+    @include breakpoint($sm-bp) {
+        width: max-content;
+    }
 }
 .container__svg {
     width: 2rem;

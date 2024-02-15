@@ -69,6 +69,8 @@ import ReviewItem from "../components/ReviewItem.vue"
 
 <style lang="scss">
 @import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 
 h2 {
     color: var(--black);
@@ -95,6 +97,9 @@ h2 {
     display: flex;
     gap: 2.8rem;
     margin-top: 1.6rem;
+    @include breakpoint($sm-bp) {
+        flex-wrap: wrap;
+    }
 }
 
 .review__show-more-container {

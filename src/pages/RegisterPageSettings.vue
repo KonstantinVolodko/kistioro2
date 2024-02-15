@@ -21,7 +21,9 @@ const showModal = ref(false);
       <router-link :to="'RegisterPage'">
         <BackButton class="back-button" />
       </router-link>
-      <img class="avatar" src="../assets/images/RegisterPage/ava.png" alt="" />
+      <div class="avatar">
+        <img src="../assets/images/RegisterPage/ava.png" alt="" />
+      </div>
       <InputChangeProfile type="text" label="Имя" />
       <p>Услуги</p>
       <div class="right-part__range-input">
@@ -38,7 +40,7 @@ const showModal = ref(false);
         <AddPortfolioCard @click="showModal = true" />
       </div>
       <router-link :to="'/'">
-        <GreenButton buttonText="Далее" />
+        <GreenButton class="green-button" buttonText="Далее" />
       </router-link>
     </div>
   </div>
@@ -46,6 +48,9 @@ const showModal = ref(false);
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .modal-overlay {
   display: flex;
   justify-content: center;
@@ -65,8 +70,32 @@ const showModal = ref(false);
     height: 2.4rem;
   }
 }
+::v-deep .inputGroup__input {
+  width: 100%;
+}
+::v-deep .back-button {
+  top: 0.8rem !important;
+  left: 0.2rem !important;
+}
+::v-deep .green-button {
+  padding: 1.8rem 2.4rem !important;
+  color: var(--white) !important;
+  width: 100%;
+}
 .avatar {
   cursor: pointer;
+  width: 7.6rem;
+  height: 7.6rem;
+  overflow: hidden;
+  @include breakpoint($sm-bp) {
+        display: flex;
+        margin: 0 auto;
+    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 .back-button {
   position: absolute;
@@ -76,12 +105,20 @@ const showModal = ref(false);
 .register-page {
   display: flex;
   height: 100%;
+  @include breakpoint($xl-bp) {
+        height: 100vh;
+        justify-content: center;
+        padding: 2rem;
+    }
 }
 .register-page__bacground-left {
   width: 78.5rem;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   object-fit: cover;
+  @include breakpoint($xl-bp) {
+        display: none;
+    }
   img {
     width: 100%;
     height: 100%;
@@ -98,6 +135,13 @@ const showModal = ref(false);
   width: 50%;
   position: relative;
   gap: 2.2rem;
+  @include breakpoint($xl-bp) {
+        width: 100%;
+    }
+    @include breakpoint($sm-bp) {
+        align-items: stretch;
+        gap: 1rem;
+    }
 }
 .register-page__right-part p {
   color: var(--black);

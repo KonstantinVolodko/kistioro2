@@ -29,6 +29,9 @@ const openModal = (imageSrc: string) => {
 </template>
 
 <style lang="scss">
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .portfolio-item {
     display: flex;
     flex-direction: column;
@@ -40,6 +43,9 @@ const openModal = (imageSrc: string) => {
         border-radius: 0.8rem;
         overflow: hidden;
         position: relative;
+        @include breakpoint($sm-bp) {
+            width: 14.3rem;
+        }
 
         img {
             width: 100%;

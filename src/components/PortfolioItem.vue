@@ -13,6 +13,9 @@
 </template>
 
 <style lang="scss">
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .portfilio-item {
     display: flex;
     flex-direction: column;
@@ -23,6 +26,9 @@
         border-radius: 0.8rem;
         overflow: hidden;
         position: relative;
+        @include breakpoint($sm-bp) {
+            width: 14.3rem;
+        }
 
         &.--dashed {
             border: 0.2rem dashed var(--gray);
@@ -52,6 +58,9 @@
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.0016rem;
+        @include breakpoint($sm-bp) {
+            font-size: 1.4rem;
+        }
     }
 }
 </style>

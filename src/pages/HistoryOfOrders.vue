@@ -38,13 +38,32 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .page-padding-sides__profile-container {
     display: flex;
     justify-content: space-between;
+    @include breakpoint($xl-bp) {
+        justify-content: center;
+    }
+}
+.portfolio-master-card {
+    @include breakpoint($xl-bp) {
+        flex-direction: column;
+    }
 }
 .profile-container__parametrs {
     display: flex;
     gap: 2.6rem;
+    @include breakpoint($xl-bp) {
+        display: none;
+    }
+}
+.portfolio-master-card__subtitle {
+    @include breakpoint($xl-bp) {
+        text-align: center;
+    }
 }
 .parametrs__settings-circly {
     margin-top: 1.6rem;
@@ -87,6 +106,11 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    p:nth-child(2) {
+    @include breakpoint($xl-bp) {
+        display: none;
+    }
+    }
 }
 .orders__title p {
     color: rgba(44, 44, 44, 0.50);

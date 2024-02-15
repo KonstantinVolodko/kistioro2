@@ -22,6 +22,9 @@ import ReviewStars from "./ReviewStars.vue";
 </template>
 
 <style lang="scss">
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
 .portfolio-master-card {
   display: flex;
   align-items: center;
@@ -51,7 +54,9 @@ import ReviewStars from "./ReviewStars.vue";
   display: flex;
   align-items: center;
   gap: 0.8rem;
-
+  @include breakpoint($xl-bp) {
+    justify-content: center;
+  }
   h2 {
     color: var(--black);
     font-size: 2rem;
@@ -66,5 +71,8 @@ import ReviewStars from "./ReviewStars.vue";
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.0014rem;
+  @include breakpoint($xl-bp) {
+    text-align: center;
+  }
 }
 </style>
