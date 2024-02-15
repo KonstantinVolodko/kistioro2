@@ -89,12 +89,17 @@ const renderBullet = (index: number, className: string) => {
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
 
-.fade-enter-active, .fade-leave-active {
+
+.fade-enter-active,
+.fade-leave-active {
   transition: transform 0.5s, opacity 0.5s;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   transform: translateX(100%);
   opacity: 0;
 }
@@ -106,6 +111,8 @@ const renderBullet = (index: number, className: string) => {
 
 .thumbs-gallery {
   margin-top: 2.2rem;
+
+  
 }
 
 .thumbnails-slider {
@@ -120,11 +127,14 @@ const renderBullet = (index: number, className: string) => {
 }
 
 .thumbs-gallery {
-  
   .thumbs-image {
     width: 100%;
     height: 26rem;
     border-radius: 1.2rem;
+
+    @include breakpoint($sm-bp) {
+      height: 20rem;
+    }
   }
 }
 

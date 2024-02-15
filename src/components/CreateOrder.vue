@@ -40,6 +40,15 @@ const toggleMasterSearchModal = () => {
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
+::v-deep .modal-content {
+  @include breakpoint($sm-bp) {
+    height: 100%;
+  }
+}
+
 ::v-deep .close-button {
   position: absolute;
   top: 2.5rem;

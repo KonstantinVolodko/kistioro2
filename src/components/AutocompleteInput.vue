@@ -53,6 +53,11 @@ function onInput(event: Event) {
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/base.scss";
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
+
 input {
   width: 100%;
   color: rgba(44, 44, 44, 0.6);

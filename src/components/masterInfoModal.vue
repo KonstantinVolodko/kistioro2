@@ -65,6 +65,9 @@ const emits = defineEmits(["toggleProjectDetails"]);
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
 .master-details-modal__content {
   overflow-x: scroll;
 
@@ -103,6 +106,10 @@ const emits = defineEmits(["toggleProjectDetails"]);
   position: relative;
   width: 40rem;
   padding: 2rem 1.6rem;
+
+  @include breakpoint($sm-bp) {
+    width: 100%;
+  }
 }
 
 ul {
@@ -154,7 +161,6 @@ ul {
 }
 
 ::v-deep .master-details-modal__master-card {
-
   .portfolio-master-card__img {
     width: 8rem;
     height: 8rem;

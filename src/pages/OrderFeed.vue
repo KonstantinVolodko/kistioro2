@@ -2,9 +2,7 @@
 import Header from "../components/Header.vue";
 import customAccordeon from "../components/customAccordeon.vue";
 import customCard from "../components/customCard.vue";
-import { ref } from "vue";
-const showModal = ref(false);
-import shareOrderModal from "../components/shareOrderModal.vue";
+
 
 </script>
 
@@ -23,20 +21,19 @@ import shareOrderModal from "../components/shareOrderModal.vue";
         </div>
         <div class="order-feed__item">
             <div class="item__card">
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
-                <customCard @click="showModal = true"/>
+                <customCard />
+                <customCard />
+                <customCard />
+                <customCard />
+                <customCard />
+                <customCard />
+                <customCard />
+                <customCard />
             </div>
         </div>
         </div>
     </div>
 
-    <shareOrderModal v-model="showModal"></shareOrderModal>
 </template>
 
 

@@ -67,13 +67,20 @@ async function fetchSuggestions(query: string) {
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/styles/base.scss";
+@import "../assets/styles/mixins.scss";
+@import "../assets/styles/vars.scss";
+
 .create-order__content {
   background: var(--white);
   height: 100%;
   position: relative;
   width: 40rem;
   padding: 2rem 1.6rem;
-  overflow-x: scroll;
+
+  @include breakpoint($sm-bp) {
+    width: 100%;
+  }
 
   &::-webkit-scrollbar {
     width: 0;
@@ -85,6 +92,10 @@ h2 {
   font-size: 2.4rem;
   font-weight: 500;
   letter-spacing: 0.0024rem;
+
+  @include breakpoint($sm-bp) {
+    display: none;
+  }
 }
 
 .modal-content {
@@ -92,12 +103,18 @@ h2 {
   background: var(--white);
   height: 100%;
   position: relative;
+
+  
 }
 .create-order__input-container {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   margin-top: 4.2rem;
+
+  @include breakpoint($sm-bp) {
+    margin-top: 1.5rem;
+  }
 
   li {
     display: flex;
@@ -149,6 +166,10 @@ h2 {
         justify-content: center;
         margin-left: auto;
 
+        @include breakpoint($sm-bp) {
+          margin-left: 0.4rem;
+        }
+
         svg {
           width: 80%;
           height: 80%;
@@ -158,6 +179,10 @@ h2 {
 
     .autocomplete-input {
       width: 28rem;
+
+      @include breakpoint($sm-bp) {
+        width: 25rem;
+      }
     }
   }
 }
@@ -165,5 +190,20 @@ h2 {
 .create-order__green-button {
   display: flex;
   margin: 2.4rem auto 0rem auto;
+
+  transition: all 0.2s;
+  border-radius: 0.8rem;
+  background: var(--darkGreen);
+  padding: 1.8rem 2.4rem;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.0016rem;
+  border: none;
+
+  &:hover {
+    background: #076162;
+  }
 }
 </style>
