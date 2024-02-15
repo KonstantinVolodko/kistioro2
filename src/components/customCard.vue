@@ -32,14 +32,16 @@ import GreenButton from '../components/GreenButton.vue'
             </div>
             <div class="feedback__btn">
                 <button class="header__button transparent-button">Подробнее</button>
-                <GreenButton buttonText="Откликнуться" />
+                <GreenButton class="green-button" buttonText="Откликнуться" />
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
     .card-profile {
         display: flex;
         padding: 1.6rem;
@@ -52,6 +54,16 @@ import GreenButton from '../components/GreenButton.vue'
 
         /* Shadow (interface) */
         box-shadow: 0px 0px 8px 2px rgba(188, 188, 188, 0.25);
+    }
+    ::v-deep .green-button {
+        padding: 1.8rem 2.4rem;
+        color: var(--white);
+    }
+    ::v-deep .transparent-button {
+        @include breakpoint($sm-bp) {
+        display: none;
+    }
+
     }
     .card-profile__info {
         display: flex;

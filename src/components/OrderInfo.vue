@@ -21,7 +21,7 @@ let data = [{
     {
         id: 2,
         svgpath: "#paint-wall",
-        text: "Декор комнаты 20 м2123123",
+        text: "Декор комнаты 20",
         status: "Не выполнено",
         date: "28.11.23",
         time: "14:00"
@@ -29,7 +29,7 @@ let data = [{
     {
         id: 2,
         svgpath: "#paint-wall",
-        text: "Декор комнаты 20 м2123123",
+        text: "Декор комнаты 20",
         date: "28.11.23",
         time: "14:00"
     },
@@ -50,6 +50,9 @@ let data = [{
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/styles/base.scss';
+@import '../assets/styles/vars.scss';
+@import '../assets/styles/mixins.scss';
     .wrapper {
         margin-top: 1.2rem;
     }
@@ -62,5 +65,10 @@ let data = [{
     .order-container {
         display: flex;
         justify-content: space-between;
+        p {
+            @include breakpoint($sm-bp) {
+                display: none;
+            }
+        }
     }
 </style>
